@@ -19,6 +19,8 @@ class FriendlyDateTimeTest extends TestCase
     public function dataPrint()
     {
         return [
+            [1514735999, '2017 年 12 月 31 日 23:59'],
+            [1514736000, '1 月 1 日 00:00'],
             [1535738584, '9 月 1 日 02:03'],
         ];
     }
@@ -36,6 +38,8 @@ class FriendlyDateTimeTest extends TestCase
     public function dataPrintWithTimezone()
     {
         return [
+            [1514735999, '2017 年 12 月 31 日 23:59'],
+            [1514736000, '1 月 1 日 00:00'],
             [1535738584, '8 月 31 日 18:03'],
         ];
     }
