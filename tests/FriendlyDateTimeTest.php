@@ -19,7 +19,7 @@ class FriendlyDateTimeTest extends TestCase
     public function dataPrint()
     {
         return [
-            [1535738584, '2018 年 9 月 1 日 2:03'],
+            [1535738584, '2018 年 9 月 1 日 02:03'],
         ];
     }
 
