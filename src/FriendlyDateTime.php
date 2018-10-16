@@ -9,10 +9,11 @@ use Carbon\Carbon;
 class FriendlyDateTime
 {
     protected $timestamp;
+    protected $timezone;
 
     public function __construct(int $timestamp, string $timezone = "Asia/Taipei")
     {
-        date_default_timezone_set($timezone);
+        $this->timezone = $timezone;
         $this->timestamp = $timestamp;
     }
 
@@ -23,7 +24,7 @@ class FriendlyDateTime
      */
     public function print()
     {
-        $result = Carbon::createFromTimestamp($this->timestamp);
+        $result = Carbon::createFromTimestamp($this->timestamp, $this->timezone);
 
         if ($result->isSameYear()) {
             return $result->format('n 月 j 日 H:i');
