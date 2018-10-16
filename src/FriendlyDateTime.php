@@ -10,8 +10,9 @@ class FriendlyDateTime
 {
     protected $timestamp;
 
-    public function __construct(int $timestamp)
+    public function __construct(int $timestamp, string $timezone = "Asia/Taipei")
     {
+        date_default_timezone_set($timezone);
         $this->timestamp = $timestamp;
     }
 
