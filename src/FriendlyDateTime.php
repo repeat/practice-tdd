@@ -24,6 +24,10 @@ class FriendlyDateTime
     public function print()
     {
         $result = Carbon::createFromTimestamp($this->timestamp);
+
+        if ($result->isCurrentYear()) {
+            return $result->format('n 月 j 日 H:i');
+        }
         return $result->format('Y 年 n 月 j 日 H:i');
     }
 }
