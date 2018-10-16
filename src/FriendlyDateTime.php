@@ -23,6 +23,6 @@ class FriendlyDateTime
     public function print()
     {
         $result = Carbon::createFromTimestamp($this->timestamp);
-        return $result->format('Y 年 n 月 j 日 G:i:s');
+        return $result->format('Y 年 n 月 j 日 G:i');
     }
 }
