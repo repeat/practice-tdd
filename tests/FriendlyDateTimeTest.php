@@ -23,11 +23,20 @@ class FriendlyDateTimeTest extends TestCase
         ];
     }
 
-    public function testPrintWithTimezone()
+    /**
+     * @dataProvider dataPrintWithTimezone
+     */
+    public function testPrintWithTimezone($input, $expected)
     {
-        $expected = '8 月 31 日 18:03';
-        $friendly = new FriendlyDateTime(1535738584, 'UTC');
+        $friendly = new FriendlyDateTime($input, 'UTC');
         $actual = $friendly->print();
         $this->assertSame($expected, $actual);
+    }
+
+    public function dataPrintWithTimezone()
+    {
+        return [
+            [1535738584, '8 月 31 日 18:03'],
+        ];
     }
 }
