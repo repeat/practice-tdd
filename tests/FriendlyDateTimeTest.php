@@ -25,7 +25,7 @@ class FriendlyDateTimeTest extends TestCase
 
     public function testPrintWithTimezone()
     {
-        $expected = '2018 年 8 月 31 日 18:03';
+        $expected = '8 月 31 日 18:03';
         $friendly = new FriendlyDateTime(1535738584, 'UTC');
         $actual = $friendly->print();
         $this->assertSame($expected, $actual);
