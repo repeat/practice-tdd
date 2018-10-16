@@ -2,6 +2,11 @@
     "name": "repeat/practice-tdd",
     "description": "Practice TDD",
     "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Repeat\\PracticeTDD\\": "src/"
+        }
+    },
     "require": {
         "php": "^7",
         "nesbot/carbon": "~1.0"
