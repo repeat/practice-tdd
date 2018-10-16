@@ -6,11 +6,20 @@ use Repeat\PracticeTDD\FriendlyDateTime;
 
 class FriendlyDateTimeTest extends TestCase
 {
-    public function testPrint()
+    /**
+     * @dataProvider dataPrint
+     */
+    public function testPrint($input, $expected)
     {
-        $expected = '2018 年 9 月 1 日 2:03:04';
-        $friendly = new FriendlyDateTime(1535767384);
+        $friendly = new FriendlyDateTime($input);
         $actual = $friendly->print();
         $this->assertSame($expected, $actual);
+    }
+
+    public function dataPrint()
+    {
+        return [
+            [1535767384, '2018 年 9 月 1 日 2:03:04'],
+        ];
     }
 }
