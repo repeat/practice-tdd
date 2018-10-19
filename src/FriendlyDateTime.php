@@ -12,7 +12,7 @@ class FriendlyDateTime
 
     public function __construct(int $comparedFrom)
     {
-         $this->comparedFrom = $comparedFrom;
+        $this->comparedFrom = $comparedFrom;
     }
 
     /**
