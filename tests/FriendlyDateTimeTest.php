@@ -9,9 +9,9 @@ class FriendlyDateTimeTest extends TestCase
     /**
      * @dataProvider dataPrint
      */
-    public function testPrint($expected, $input)
+    public function testPrint($expected, $comparedFrom)
     {
-        $friendly = new FriendlyDateTime($input);
+        $friendly = new FriendlyDateTime($comparedFrom);
         $actual = $friendly->print();
         $this->assertSame($expected, $actual);
     }

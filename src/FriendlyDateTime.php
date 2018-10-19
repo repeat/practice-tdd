@@ -8,11 +8,11 @@ use Carbon\Carbon;
  */
 class FriendlyDateTime
 {
-    protected $timezone;
+    protected $comparedFrom;
 
-    public function __construct(int $timestamp)
+    public function __construct(int $comparedFrom)
     {
-         $this->timestamp = $timestamp;
+         $this->comparedFrom = $comparedFrom;
     }
 
     /**
@@ -22,7 +22,7 @@ class FriendlyDateTime
      */
     public function print()
     {
-        $result = Carbon::createFromTimestamp($this->timestamp, 'Asia/Taipei');
+        $result = Carbon::createFromTimestamp($this->comparedFrom, 'Asia/Taipei');
 
         if ($result->isSameYear()) {
             return $result->format('n 月 j 日 H:i');
