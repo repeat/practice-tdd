@@ -27,6 +27,9 @@ class FriendlyDateTime
         $from = Carbon::createFromTimestamp($this->comparedFrom, 'Asia/Taipei');
         $to = Carbon::createFromTimestamp($this->comparedTo, 'Asia/Taipei');
 
+        if ($from->DiffInDays($to) <= 30) {
+            return $from->DiffInDays($to) . ' 天前';
+        }
         if ($from->isSameYear($to)) {
             return $from->format('n 月 j 日 H:i');
         }
