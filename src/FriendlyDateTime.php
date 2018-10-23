@@ -9,10 +9,12 @@ use Carbon\Carbon;
 class FriendlyDateTime
 {
     protected $comparedFrom;
+    protected $comparedTo;
 
-    public function __construct(int $comparedFrom)
+    public function __construct(int $comparedFrom, int $comparedTo)
     {
         $this->comparedFrom = $comparedFrom;
+        $this->comparedTo = $comparedTo;
     }
 
     /**
@@ -22,11 +24,12 @@ class FriendlyDateTime
      */
     public function print()
     {
-        $result = Carbon::createFromTimestamp($this->comparedFrom, 'Asia/Taipei');
+        $from = Carbon::createFromTimestamp($this->comparedFrom, 'Asia/Taipei');
+        $to = Carbon::createFromTimestamp($this->comparedTo, 'Asia/Taipei');
 
-        if ($result->isSameYear()) {
-            return $result->format('n 月 j 日 H:i');
+        if ($from->isSameYear($to)) {
+            return $from->format('n 月 j 日 H:i');
         }
-        return $result->format('Y 年 n 月 j 日 H:i');
+        return $from->format('Y 年 n 月 j 日 H:i');
     }
 }
