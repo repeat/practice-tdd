@@ -9,9 +9,9 @@ class FriendlyDateTimeTest extends TestCase
     /**
      * @dataProvider dataPrint
      */
-    public function testPrint($expected, $comparedFrom)
+    public function testPrint($expected, $comparedFrom, $comparedTo)
     {
-        $friendly = new FriendlyDateTime($comparedFrom);
+        $friendly = new FriendlyDateTime($comparedFrom, $comparedTo);
         $actual = $friendly->print();
         $this->assertSame($expected, $actual);
     }
@@ -19,9 +19,9 @@ class FriendlyDateTimeTest extends TestCase
     public function dataPrint()
     {
         return [
-            ['2017 年 12 月 31 日 23:59', 1514735999,],
-            ['1 月 1 日 00:00', 1514736000,],
-            ['9 月 1 日 02:03', 1535738584,],
+            ['2017 年 12 月 31 日 23:59', 1514735999, 1540166400],
+            ['1 月 1 日 00:00', 1514736000, 1540166400],
+            ['9 月 1 日 02:03', 1535738584, 1540166400],
         ];
     }
 }
