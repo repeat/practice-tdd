@@ -33,6 +33,6 @@ class FriendlyDateTime
         if ($from->isSameYear($to)) {
             return $from->format('n 月 j 日 H:i');
         }
-        return $from->format('Y 年 n 月 j 日 H:i');
+        return $from->format('Y 年 n 月 j 日');
     }
 }
