@@ -30,7 +30,7 @@ class FriendlyDateTime
         if ($from->DiffInDays($to) <= 30) {
             return $from->DiffInDays($to) . ' 天前';
         }
-        if ($from->isSameYear($to)) {
+        if ($from->diffInYears($to) < 1) {
             return $from->format('n 月 j 日 H:i');
         }
         return $from->format('Y 年 n 月 j 日');
