@@ -31,7 +31,7 @@ class FriendlyDateTime
             return $from->DiffInDays($to) . ' 天前';
         }
 
-        if ($from->diffInYears($to) >= 1) {
+        if ($from->diffInSeconds($to) > (365 * 24 * 60 * 60)) {
             return $from->format('Y 年 n 月 j 日');
         }
 
