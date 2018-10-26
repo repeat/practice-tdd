@@ -30,6 +30,9 @@ class FriendlyDateTime
         if ($from->diffInMinutes($to) < 1) {
             return '剛剛';
         }
+        if ($from->diffInHours($to) < 1) {
+            return $from->diffInMinutes($to) . ' 分鐘前';
+        }
 
         if ($from->diffInSeconds($to) > (365 * 24 * 60 * 60)) {
             return $from->format('Y 年 n 月 j 日');
