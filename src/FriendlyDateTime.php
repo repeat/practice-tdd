@@ -27,7 +27,7 @@ class FriendlyDateTime
         $from = Carbon::createFromTimestamp($this->comparedFrom, 'Asia/Taipei');
         $to = Carbon::createFromTimestamp($this->comparedTo, 'Asia/Taipei');
 
-        if ($from->diffInMinutes($to) < 1) {
+        if ($from->diffInSeconds($to) <= 60) {
             return '剛剛';
         }
         if ($from->diffInHours($to) < 1) {
