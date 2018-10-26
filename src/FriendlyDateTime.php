@@ -37,7 +37,9 @@ class FriendlyDateTime
             return $from->diffInHours($to) . ' 小時前';
         }
         if ($from->diffInDays($to) < 2) {
-            if ($to->isYesterday()) {
+            $fromMidnight = Carbon::parse($from->toDateString());
+            $toMidnight = Carbon::parse($to->toDateString());
+            if (1 === $fromMidnight->diffInDays($toMidnight)) {
                 return $from->format('昨天 H:i');
             }
             return $from->format('前天 H:i');
