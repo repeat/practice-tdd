@@ -50,6 +50,11 @@ class FriendlyDateTimeTest extends TestCase
                 1514822400, // 2018/01/02 00:00:00 Asia/Taipei
             ],
             [
+                '前天 23:59',
+                1514822399, // 2018/01/01 23:59:59 Asia/Taipei
+                1514908800, // 2018/01/03 00:00:00 Asia/Taipei
+            ],
+            [
                 '1 月 1 日 00:00',
                 1514736000, // 2018/01/01 00:00:00 Asia/Taipei
                 1514908800, // 2018/01/03 00:00:00 Asia/Taipei
