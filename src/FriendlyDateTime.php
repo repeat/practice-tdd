@@ -39,11 +39,9 @@ class FriendlyDateTime
         if ($from->diffInDays($to) < 2) {
             return $from->format('昨天 H:i');
         }
-
-        if ($from->diffInSeconds($to) > (365 * 24 * 60 * 60)) {
-            return $from->format('Y 年 n 月 j 日');
+        if ($from->diffInSeconds($to) <= (365 * 24 * 60 * 60)) {
+            return $from->format('n 月 j 日 H:i');
         }
-
-        return $from->format('n 月 j 日 H:i');
+        return $from->format('Y 年 n 月 j 日');
     }
 }
