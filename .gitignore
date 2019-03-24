@@ -3,3 +3,7 @@
 
 # composer files
 vendor/
+
+# code coverage
+coverage.xml
+
