@@ -3,9 +3,12 @@ language: php
 php:
   - '7.2'
   - '7.3'
+  - '7.4'
 
 install:
   - composer install
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+dist: bionic
