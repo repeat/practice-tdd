@@ -27,8 +27,9 @@ class MaskTest extends TestCase
 
     /**
      * @dataProvider dataIsValidEvenWeekdayTrue
+     * @dataProvider dataIsValidOddWeekdayTrue
      */
-    public function testIsValidEvenWeekdayTrue(String $weekday, int $final): void
+    public function testIsValidWeekdayTrue(String $weekday, int $final): void
     {
         Carbon::setTestNow(Carbon::parse($weekday));
         $this->assertTrue(Mask::isValidWeekday($final));
@@ -56,8 +57,9 @@ class MaskTest extends TestCase
 
     /**
      * @dataProvider dataIsValidEvenWeekdayFalse
+     * @dataProvider dataIsValidOddWeekdayFalse
      */
-    public function testIsValidEvenWeekdayFalse(String $weekday, int $final): void
+    public function testIsValidWeekdayFalse(String $weekday, int $final): void
     {
         Carbon::setTestNow(Carbon::parse($weekday));
         $this->assertFalse(Mask::isValidWeekday($final));
@@ -76,6 +78,45 @@ class MaskTest extends TestCase
         foreach ($weekdays as $weekday) {
             foreach ($evens as $even) {
                 $data[] = [$weekday, $even];
+            }
+        }
+
+        return $data;
+    }
+
+    public function dataIsValidOddWeekdayTrue(): array
+    {
+        $weekdays = [
+            'Monday',
+            'Wednesday',
+            'Friday',
+            'Sunday',
+        ];
+        $odds = [1, 3, 5, 7, 9];
+        $data = [];
+
+        foreach ($weekdays as $weekday) {
+            foreach ($odds as $odd) {
+                $data[] = [$weekday, $odd];
+            }
+        }
+
+        return $data;
+    }
+
+    public function dataIsValidOddWeekdayFalse(): array
+    {
+        $weekdays = [
+            'Tuesday',
+            'Thursday',
+            'Saturday',
+        ];
+        $odds = [1, 3, 5, 7, 9];
+        $data = [];
+
+        foreach ($weekdays as $weekday) {
+            foreach ($odds as $odd) {
+                $data[] = [$weekday, $odd];
             }
         }
 
