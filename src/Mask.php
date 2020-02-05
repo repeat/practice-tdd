@@ -27,14 +27,18 @@ class Mask
     public static function isValidWeekday(int $final): bool
     {
         $now = Carbon::now();
-        $weekday = (int) $now->format('N');
         $is_even = (0 === $final % 2);
-        $weekdays = [2, 4, 6, 7];
-
-        if (!$is_even) {
-            return false;
+        $weekday = (int) $now->format('N');
+        $weekdays = [
+            'even' => [2, 4, 6, 7],
+            'odd' => [1, 3, 5, 7],
+        ];
+        $valid_weekdays = $weekdays['odd'];
+        if ($is_even) {
+            $valid_weekdays = $weekdays['even'];
         }
-        if (in_array($weekday, $weekdays)) {
+
+        if (in_array($weekday, $valid_weekdays)) {
             return true;
         }
 
