@@ -23,4 +23,21 @@ class Mask
 
         return $now->greaterThanOrEqualTo($effective_date);
     }
+
+    public static function isValidWeekday(int $final): bool
+    {
+        $now = Carbon::now();
+        $weekday = (int) $now->format('N');
+        $is_even = (0 === $final % 2);
+        $weekdays = [2, 4, 6, 7];
+
+        if (!$is_even) {
+            return false;
+        }
+        if (in_array($weekday, $weekdays)) {
+            return true;
+        }
+
+        return false;
+    }
 }
