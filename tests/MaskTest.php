@@ -122,4 +122,18 @@ class MaskTest extends TestCase
 
         return $data;
     }
+
+    /**
+     * @dataProvider dataIsValidWeekdayNonFinal
+     */
+    public function testIsValidWeekdayNonFinal(int $final): void
+    {
+        $this->expectException('InvalidArgumentException');
+        Mask::isValidWeekday($final);
+    }
+
+    public function dataIsValidWeekdayNonFinal(): array
+    {
+        return [[-1], [10]];
+    }
 }
