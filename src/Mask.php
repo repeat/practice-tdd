@@ -26,6 +26,11 @@ class Mask
 
     public static function isValidWeekday(int $final): bool
     {
+        $finals = range(0, 9);
+        if (!in_array($final, $finals)) {
+            throw new \InvalidArgumentException('身份證字號的尾數不正確');
+        }
+
         $now = Carbon::now();
         $is_even = (0 === $final % 2);
         $weekday = (int) $now->format('N');
