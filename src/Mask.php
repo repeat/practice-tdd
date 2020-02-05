@@ -13,7 +13,7 @@ class Mask
         date_default_timezone_set('Asia/Taipei');
     }
 
-    public static function isValidDateRange(Carbon $now): bool
+    public static function isValidDateRange(): bool
     {
         $effective_date = Carbon::parse(self::EFFECTIVE_DATE);
         $now = Carbon::now();
