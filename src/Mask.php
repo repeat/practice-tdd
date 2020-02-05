@@ -8,6 +8,9 @@ class Mask
 {
     const EFFECTIVE_DATE = '2020/02/06';
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct()
     {
         date_default_timezone_set('Asia/Taipei');
