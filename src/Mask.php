@@ -6,7 +6,12 @@ use Carbon\Carbon;
 
 class Mask
 {
-    const EFFECTIVE_DATE = '2020/02/06 0:00:00 Asia/Taipei';
+    const EFFECTIVE_DATE = '2020/02/06';
+
+    public function __construct()
+    {
+        date_default_timezone_set('Asia/Taipei');
+    }
 
     public static function isValidDateRange(Carbon $now): bool
     {
