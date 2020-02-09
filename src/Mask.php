@@ -32,21 +32,15 @@ class Mask
         }
 
         $now = Carbon::now();
-        $is_even = (0 === $final % 2);
         $weekday = (int) $now->format('N');
-        $weekdays = [
-            'even' => [2, 4, 6, 7],
-            'odd' => [1, 3, 5, 7],
-        ];
-        $valid_weekdays = $weekdays['odd'];
-        if ($is_even) {
-            $valid_weekdays = $weekdays['even'];
-        }
-
-        if (in_array($weekday, $valid_weekdays)) {
+        if (7 === $weekday) {
             return true;
         }
-
-        return false;
+        
+        $is_even = (0 === $final % 2);
+        if ($is_even) {
+            return 0 === $weekday % 2;
+        }
+        return 1 === $weekday % 2;
     }
 }
